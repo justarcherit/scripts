@@ -1,0 +1,308 @@
+	// Dota Units File
+"DOTAUnits"
+{
+	"Version"	"1"
+  	
+  			//自定义单位文件
+  			//这里和自定义英雄并无太大区别
+  			//除了BaseClass和Model为必须之外，其他字段都可以根据实际情况选用
+
+  			//要特别注意的是，如果你在Model字段使用了英雄的模型
+  			//那么将会载入的是模型的基础模型，例如一个光头的，不带坐骑箭袋弓的双腿微弯的女人作为米拉娜
+  			//如果需要载入默认/自定义的饰品，那么还需要在最后定义一个
+
+  			//"Creature"
+			//{
+			//	"AttachWearables"
+			//	{
+			//		"Wearable1"	{ "ItemDef" "252" }
+			//		"Wearable2"	{ "ItemDef"	"253" }
+			//		"Wearable3" { "ItemDef"	"254" }
+			//		"Wearable4" { "ItemDef"	"255" }
+			//		"Wearable5" { "ItemDef"	"256" }
+			//		"Wearable6" { "ItemDef"	"257" }
+			//	}
+			//}
+  			//这些部件，还需要到root/scripts/items/item_game里面查询
+  			//例如 ID257是
+  			//"257"
+			//{
+			//	"name"		"Blood Seeker's Skirt"
+			//	"prefab"		"default_item"
+			//	"item_description"		"#DOTA_Item_Desc_Copy_of_Blood_Seekers_Bracers"
+			//	"item_name"		"#DOTA_Item_Blood_Seekers_Skirt"
+			//	"item_slot"		"belt"
+			//	"item_type_name"		"#DOTA_WearableType_belt"
+			//	"model_player"		"models/heroes/blood_seeker/belt.mdl"
+			//	"used_by_heroes"
+			//	{
+			//		"npc_dota_hero_bloodseeker"		"1"
+			//	}
+			//}
+			//血魔的基础手腕
+
+    "npc_dota2x_unit_reimu01_ball"
+  	{
+  		"model"					"models/thd2/yyy.vmdl"
+  		"BaseClass"				"npc_dota_creep_neutral"
+		"ModelScale" 			"2.0"
+		"Ability1"				"ability_dummy_unit"
+  		"AttackCapabilities"	"DOTA_UNIT_CAP_NO_ATTACK"
+  		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
+  		"VisionDaytimeRange"	"100"
+  		"VisionNighttimeRange"	"100"
+  		"HasInventory"			"0"
+  		"WakesNeutrals"			"0"
+  	}
+	
+	"npc_dota2x_unit_reimu02_light"
+  	{
+		"model"					"models/thd2/fantasy_seal.vmdl"
+  		"BaseClass"				"npc_dota_creep_neutral"
+		"Ability1"				"ability_dummy_unit"
+  		"AttackCapabilities"	"DOTA_UNIT_CAP_NO_ATTACK"
+  		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
+  		"VisionDaytimeRange"	"100"
+  		"VisionNighttimeRange"	"100"
+  		"HasInventory"			"0"
+  		"WakesNeutrals"			"0"
+  	}
+	
+	"npc_thdots_unit_marisa03_star"
+  	{
+		"model"						"models/props_gameplay/rune_haste01.vmdl"
+  		"BaseClass"					"npc_dota_creep_neutral"
+		"Ability1"					"ability_dummy_unit"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"1"		// Damage range min.
+		"AttackDamageMax"			"2"		// Damage range max.
+		"AttackDamageType"			"DAMAGE_TYPE_ArmorMagical"
+  		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
+		"AttackRate"				"1.35"			// Speed of attack.
+		"AttackAnimationPoint"		"0.1"		// Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"	"500"		// Range within a target can be acquired.
+		"AttackRange"				"700"		// Range within a target can be attacked.
+		"ProjectileModel"			"particles/base_attacks/ranged_tower_good.vpcf"		// Particle system model for projectile.
+		"ProjectileSpeed"			"700"		// Speed of projectile.
+  		"VisionDaytimeRange"		"100"
+  		"VisionNighttimeRange"		"100"
+  		"HasInventory"				"0"
+  		"WakesNeutrals"				"0"
+  	}
+	
+	"npc_dota2x_unit_marisa04_spark"
+  	{
+		"model"					"models/thd2/masterspark.vmdl"
+  		"BaseClass"				"npc_dota_creep_neutral"
+		"Ability1"				"ability_dummy_unit"
+  		"AttackCapabilities"	"DOTA_UNIT_CAP_NO_ATTACK"
+  		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
+  		"VisionDaytimeRange"	"1000"
+  		"VisionNighttimeRange"	"1000"
+  		"HasInventory"			"0"
+  		"WakesNeutrals"			"0"
+  	}
+	
+	"npc_thdots_unit_youmu03_unit"
+  	{
+		"model"						"models/thd2/youmu/youmu.vmdl"
+  		"BaseClass"					"npc_dota_creature"
+		"Ability1"					"ability_dummy_unit"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"1"		// Damage range min.
+		"AttackDamageMax"			"2"		// Damage range max.
+		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"			// Type of locomotion - ground, air
+		"MovementSpeed"				"522"		// Speed
+		"MovementTurnRate"			"1.0"		// Turning rate.
+		"AttackRate"				"1.35"		// Speed of attack.
+		"AttackAnimationPoint"		"0.1"		// Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"	"500"		// Range within a target can be acquired.
+		"AttackRange"				"128"		// Range within a target can be attacked.
+		"ProjectileModel"			""		// Particle system model for projectile.
+		"ProjectileSpeed"			""		// Speed of projectile.
+  		"VisionDaytimeRange"		"100"
+  		"VisionNighttimeRange"		"100"
+  		"HasInventory"				"0"
+  		"WakesNeutrals"				"0"
+  	}
+
+  	"npc_dota2x_unit_yuyuko_04"
+  	{
+		"model"					"models/thd2/yuyuko_fan.vmdl"
+  		"BaseClass"				"npc_dota_creep_neutral"
+		"Ability1"				"ability_dummy_unit"
+		"ModelScale" 			"30.0"
+  		"AttackCapabilities"	"DOTA_UNIT_CAP_NO_ATTACK"
+  		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
+  		"VisionDaytimeRange"	"100"
+  		"VisionNighttimeRange"	"100"
+  		"HasInventory"			"0"
+  		"WakesNeutrals"			"0"
+  	}
+
+  	"npc_dota2x_unit_mokou_04"
+  	{
+		"model"					"models/thd2/firewing.vmdl"
+  		"BaseClass"				"npc_dota_creep_neutral"
+		"Ability1"				"ability_dummy_unit"
+  		"AttackCapabilities"	"DOTA_UNIT_CAP_NO_ATTACK"
+  		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
+  		"VisionDaytimeRange"	"100"
+  		"VisionNighttimeRange"	"100"
+  		"HasInventory"			"0"
+  		"WakesNeutrals"			"0"
+  	}
+	
+	//=================================================================================
+	// Tower: Holdout Tower
+	//=================================================================================
+	"npc_dota_thd_tower"
+	{
+		// General
+		//
+		"BaseClass"					"npc_dota_holdout_tower"	// Class of entity of link to.
+		"Model"						"models/items/courier/raidcall_ems_one_turtle/raidcall_ems_one_turtle.vmdl"// Model.
+		"SoundSet"					"Tower.Water"					// Name of sound set.
+		"MinimapIcon"				"minimap_tower90"
+		"MinimapIconSize"			"200"
+		"Level"						"1"
+		
+		// Abilities
+		//----------------------------------------------------------------
+		
+		"Ability1"					""			// Ability 1.
+		"Ability2"					""			// Ability 2.
+		"Ability3"					""			// Ability 3.
+		"Ability4"					""			// Ability 4.
+		"Ability5"					""			// Ability 5.
+		"Ability6"					""			// Ability 6 - Extra.
+		"Ability7"					""			// Ability 7 - Extra.
+		"Ability8"					""			// Ability 8 - Extra.
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"20"		// Physical protection.
+		"MagicalResistance"			"0"			// Magical protection.
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"25"		// Damage range min.
+		"AttackDamageMax"			"50"		// Damage range max.
+		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
+		"AttackRate"				"1"			// Speed of attack.
+		"AttackAnimationPoint"		"0.6"		// Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"	"700"		// Range within a target can be acquired.
+		"AttackRange"				"700"		// Range within a target can be attacked.
+		"ProjectileModel"			"particles/base_attacks/ranged_tower_good.vpcf"		// Particle system model for projectile.
+		"ProjectileSpeed"			"750"		// Speed of projectile.
+
+		// Attributes
+		//----------------------------------------------------------------
+		"AttributePrimary"			"DOTA_ATTRIBUTE_STRENGTH"
+		"AttributeBaseStrength"		"0"			// Base strength
+		"AttributeStrengthGain"		"0"			// Strength bonus per level.
+		"AttributeBaseIntelligence"	"0"			// Base intelligence
+		"AttributeIntelligenceGain"	"0"			// Intelligence bonus per level.
+		"AttributeBaseAgility"		"0"			// Base agility
+		"AttributeAgilityGain"		"0"			// Agility bonus per level.
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"25"	// Experience earn.
+		"BountyGoldMin"				"0"		// Gold earned min.
+		"BountyGoldMax"				"0"		// Gold earned max.
+
+		// Bounds
+		//----------------------------------------------------------------
+		"BoundsHullName"			"DOTA_HULL_SIZE_TOWER"			// Hull type used for navigation/locomotion.
+		"ProjectileCollisionSize"	"50"
+		"RingRadius"				"130"
+		"HealthBarOffset"			"260"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"			// Type of locomotion - ground, air
+		"MovementSpeed"				"0"				// Speed
+		"MovementTurnRate"			"1.0"			// Turning rate.
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"1000"		// Base health.
+		"StatusHealthRegen"			"3"			// Health regeneration rate.
+		"StatusMana"				"0"			// Base mana.
+		"StatusStartingMana"		"0"			// Base mana.
+		"StatusManaRegen"			"0"			// Mana regeneration rate.
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_GOODGUYS"			// Team name.
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"1900"		// Range of vision during day light.
+		"VisionNighttimeRange"		"1600"		// Range of vision at night time.
+	}
+	
+  	"npc_dummy_unit"
+	{
+		"BaseClass"					"npc_dota_creep_neutral"
+		"Model"						"models/development/invisiblebox.vmdl"
+		"SoundSet"					"Creep_Good_Range"
+		"Level"						"0"
+		"UnitLabel"					"healing_ward"
+		
+		
+		"Ability1"					"ability_dummy_unit"
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+	}	
+
+	"npc_reimu_04_dummy_unit"
+	{
+		"BaseClass"					"npc_dota_creep_neutral"
+		"Model"						"models/development/invisiblebox.vmdl"
+		"SoundSet"					"Creep_Good_Range"
+		"Level"						"0"
+		"UnitLabel"					"healing_ward"
+		
+		"Ability1"					"ability_reimu04_dummy_unit"
+
+		"StatusHealth"				"100000"		// Base health.
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+	}	
+	
+	"npc_coin_up_unit"
+	{
+		"BaseClass"					"npc_dota_creep_neutral"
+		"Model"						"models/thd2/point.vmdl"
+		"SoundSet"					"Creep_Good_Range"
+		"Level"						"0"
+		"UnitLabel"					"healing_ward"
+		"ModelScale" 			    "0.2"
+		
+		"Ability1"					"ability_dummy_unit"
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+	}	
+	
+	"npc_power_up_unit"
+	{
+		"BaseClass"					"npc_dota_creep_neutral"
+		"Model"						"models/thd2/power.vmdl"
+		"SoundSet"					"Creep_Good_Range"
+		"Level"						"0"
+		"UnitLabel"					"healing_ward"
+		"ModelScale" 			    "0.2"
+		
+		
+		"Ability1"					"ability_dummy_unit"
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+	}	
+}

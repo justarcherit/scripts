@@ -1,0 +1,659 @@
+"DOTAHeroes"
+{
+	//虽然这个文件命名为npc_heroes_custom，自定义英雄，但是目前在DOTA2，依然无法真正地自定义一个英雄。
+	//更合适的名称应该是重写英雄
+	//这里所定义的英雄，都必须定义一个 override_hero ，所重写英雄的字段，
+	//在英雄选择界面，选择 override_hero 所指定的那个英雄，得到的就是我们的这个英雄。
+	//一般在英雄定义这个部分，我们除了重新定义英雄的技能和基本属性以外，不去定义英雄的模型、语音什么的
+	//避免不必要的麻烦（主要是饰品问题）
+
+	"npc_dota_hero_ancient_apparition_sample"
+	{
+		"override_hero"			"npc_dota_hero_ancient_apparition"
+			//必须，定义英雄所覆盖的英雄
+
+			//以下全部字段，如果未定义的，将会完全继承 npc_dota_hero_ancient_apparition 的所有属性
+		"AbilityLayout" 		"6"
+			//定义英雄的技能格子数目，例如祈求者为6
+		"Ability1"				"sample_ability" 
+		"Ability2"				"reflex_empty2" 
+		"Ability3"				"reflex_empty3" 
+		"Ability4"				"reflex_empty4"
+		"Ability5"				"reflex_empty5"
+		"Ability6"				"reflex_empty6"
+	    "Ability7"				"attribute_bonus"
+	    "Ability8"				""
+	    "Ability9"				""
+	    "Ability10"				""
+	    "Ability11"				""
+	    "Ability12"				""
+	    "Ability13"				""
+	    "Ability14"				""
+	    "Ability15"				""
+	    "Ability16"				""
+			//对于技能的个数，并没有发现有任何上限，同样可以通过lua程序等等放出来
+			//但是显示在面板中的技能，是由AbilityLayout所定义的
+			//如果你定义的技能个数小于AbilityLayout，那么技能就会在面板上空出来一个位置。
+			//如果大于，那么就不会在面板上显示，而变为"隐藏的技能"
+			//还需要特别注意的是 attribute_bonus 这个技能，也就是所谓的黄点，这个技能可以定义成人和一个技能
+			//而且不算在AbilityLayout里面
+
+		"ArmorPhysical"				"0"
+			//物理护甲
+		"MagicalResistance"				"0"
+			//魔法抗性
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+			//攻击类型，这里是无法攻击。其他的包括
+			//DOTA_UNIT_CAP_MELEE_ATTACK 近战攻击
+			//DOTA_UNIT_CAP_RANGED_ATTACK 远程攻击
+		"AttackDamageMin"			"1"
+			//最大攻击力
+		"AttackDamageMax"			"1"
+			//最小攻击力
+
+		"AttributePrimary"			"DOTA_ATTRIBUTE_STRENGTH"
+			//主属性，这里是力量型
+			//还可以改为
+			//DOTA_ATTRIBUTE_AGILITY 敏捷型
+			//DOTA_ATTRIBUTE_INTELLECT 智力型
+		"AttributeBaseStrength"		"0"
+			//基础力量
+		"AttributeStrengthGain"		"0"
+			//每级增加的力量，力量成长
+		"AttributeBaseIntelligence"	"0"
+			//基础智力
+		"AttributeIntelligenceGain"	"0"
+			//每级增加的智力，智力成长
+		"AttributeBaseAgility"		"0"
+			//基础敏捷
+		"AttributeAgilityGain"		"0"
+			//每级增加的敏捷，敏捷成长
+
+		"BountyXP"					"0"
+			//击杀经验奖励 =独立于系统击杀经验之外
+		"BountyGoldMin"				"0"
+			//最小击杀金钱奖励 =独立于系统击杀金钱之外
+		"BountyGoldMax"				"0"
+			//最大击杀金钱奖励 =独立于系统击杀金钱之外
+
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+			//碰撞体积类型，这里是英雄，此外还有
+			//DOTA_HULL_SIZE_BARRACKS
+			//DOTA_HULL_SIZE_BUILDING
+			//DOTA_HULL_SIZE_FILLER
+			//DOTA_HULL_SIZE_HERO
+			//DOTA_HULL_SIZE_HUGE
+			//DOTA_HULL_SIZE_REGULAR
+			//DOTA_HULL_SIZE_SIEGE
+			//DOTA_HULL_SIZE_SMALL
+			//DOTA_HULL_SIZE_TOWER
+
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+			//移动类型，这里是地面
+			//其他还有
+			//DOTA_UNIT_CAP_MOVE_FLY 飞行
+			//DOTA_UNIT_CAP_MOVE_NONE 无法移动
+		"MovementSpeed"				"360"
+			//基础移动速度
+		"MovementTurnRate"			"1.0"
+			//转身速度
+		"StatusHealth"				"981"
+			//基础生命值
+		"StatusHealthRegen"			"0.0"
+			//基础生命恢复
+		"StatusMana"				"387"
+			//基础魔法值
+		"StatusManaRegen"			"99.96"
+			//基础魔法恢复（这里设置成小数的好处是可以避免系统的一个莫名其妙的报错）
+
+		"VisionDaytimeRange"		"1800"
+			//白天视野大小
+		"VisionNighttimeRange"		"1800"
+			//晚上视野大小
+	}
+	
+	"npc_dota_hero_reimu"
+	{
+		"override_hero"			"npc_dota_hero_lina"
+		"AbilityLayout" 		"5"
+		"Ability1"				"ability_dota2x_reimu01" 
+		"Ability2"				"ability_dota2x_reimu02"
+		"Ability3"				"ability_dota2x_reimu03"
+		"Ability4"				"ability_collection_power"
+		"Ability5"				"ability_dota2x_reimu04"
+		"Ability6"				"attribute_bonus"
+		
+		"Model"                 "models/thd2/reimu/reimu.vmdl"
+			
+		"AttackAnimationPoint"		"0.6"	
+			//攻击前摇
+		"AttackRate"				"1.6"			
+			//攻击速度
+		"ArmorPhysical"				"0"
+			//物理护甲
+		"AttackDamageMin"			"25"
+			//最大攻击力
+		"AttackDamageMax"			"36"
+			//最小攻击力
+			
+		"AttributeBaseStrength"		"20"
+			//基础力量
+		"AttributeStrengthGain"		"1.7"
+			//每级增加的力量，力量成长
+		"AttributeBaseAgility"		"18"
+			//基础敏捷
+		"AttributeAgilityGain"		"1.9"
+			//每级增加的敏捷，敏捷成长
+		"AttributeBaseIntelligence"	"22"
+			//基础智力
+		"AttributeIntelligenceGain"	"2.4"
+			//每级增加的智力，智力成长
+			
+		"MovementSpeed"				"295"
+			//基础移动速度
+		"MovementTurnRate"			"1.0"
+			//转身速度
+		"StatusHealth"				"135"
+			//基础生命值
+		"StatusHealthRegen"			"0.5"
+			//基础生命恢复
+		"StatusMana"				"60"
+			//基础魔法值
+		"StatusManaRegen"			"0.0"
+			//基础魔法恢复
+
+		"VisionDaytimeRange"		"1050"
+			//白天视野大小
+		"VisionNighttimeRange"		"700"
+			//晚上视野大小
+    }
+	"npc_dota_hero_marisa"
+	{
+		"override_hero"			"npc_dota_hero_crystal_maiden"
+		"AbilityLayout" 		"5"
+		"Ability1"				"ability_thdots_marisa01" 
+		"Ability2"				"ability_thdots_marisa02" 
+		"Ability3"				"ability_thdots_marisa03" 
+		"Ability4"				"ability_collection_power"
+		"Ability5"				"ability_thdots_marisa04" 
+		"Ability6"				"attribute_bonus"
+		
+		"Model"                 "models/thd2/marisa/marisa.vmdl"
+			
+		"ArmorPhysical"				"0"
+			//物理护甲
+		"AttackDamageMin"			"22"
+			//最大攻击力
+		"AttackDamageMax"			"34"
+			//最小攻击力
+			
+		"AttributeBaseStrength"		"20"
+			//基础力量
+		"AttributeStrengthGain"		"2.0"
+			//每级增加的力量，力量成长
+		"AttributeBaseAgility"		"16"
+			//基础敏捷
+		"AttributeAgilityGain"		"1.5"
+			//每级增加的敏捷，敏捷成长
+		"AttributeBaseIntelligence"	"24"
+			//基础智力
+		"AttributeIntelligenceGain"	"2.5"
+			//每级增加的智力，智力成长
+			
+		"MovementSpeed"				"300"
+			//基础移动速度
+		"MovementTurnRate"			"1.0"
+			//转身速度
+		"StatusHealth"				"135"
+			//基础生命值
+		"StatusHealthRegen"			"0.5"
+			//基础生命恢复
+		"StatusMana"				"40"
+			//基础魔法值
+		"StatusManaRegen"			"0.0"
+			//基础魔法恢复
+
+		"VisionDaytimeRange"		"1050"
+			//白天视野大小
+		"VisionNighttimeRange"		"700"
+			//晚上视野大小
+	}
+	"npc_dota_hero_youmu"
+	{
+		"override_hero"			"npc_dota_hero_juggernaut"
+		"AbilityLayout" 		"5"
+		"Ability1"				"ability_thdots_youmu01" 
+		"Ability2"				"ability_thdots_youmu02" 
+		"Ability3"				"ability_thdots_youmu03" 
+		"Ability4"				"ability_collection_power"
+		"Ability5"				"ability_thdots_youmu04" 
+		"Ability6"				"attribute_bonus"
+		
+		"Model"                 "models/thd2/youmu/youmu.vmdl"
+			
+		"ArmorPhysical"				"0"
+			//物理护甲
+		"AttackDamageMin"			"32"
+			//最大攻击力
+		"AttackDamageMax"			"34"
+			//最小攻击力
+			
+		"AttributeBaseStrength"		"19"
+			//基础力量
+		"AttributeStrengthGain"		"1.8"
+			//每级增加的力量，力量成长
+		"AttributeBaseAgility"		"26"
+			//基础敏捷
+		"AttributeAgilityGain"		"2.7"
+			//每级增加的敏捷，敏捷成长
+		"AttributeBaseIntelligence"	"15"
+			//基础智力
+		"AttributeIntelligenceGain"	"1.5"
+			//每级增加的智力，智力成长
+			
+		"MovementSpeed"				"320"
+			//基础移动速度
+		"MovementTurnRate"			"1.2"
+			//转身速度
+		"StatusHealth"				"190"
+			//基础生命值
+		"StatusHealthRegen"			"1.5"
+			//基础生命恢复
+		"StatusMana"				"50"
+			//基础魔法值
+		"StatusManaRegen"			"0.0"
+			//基础魔法恢复
+
+		"VisionDaytimeRange"		"1050"
+			//白天视野大小
+		"VisionNighttimeRange"		"700"
+			//晚上视野大小
+	}
+	"npc_dota_hero_Aya"
+	{
+		"override_hero"			"npc_dota_hero_slark"
+		"AbilityLayout" 		"5"
+		"Ability1"				"ability_thdots_aya01" 
+		"Ability2"				"ability_thdots_aya02" 
+		"Ability3"				"ability_thdots_aya03" 
+		"Ability4"				"ability_collection_power"
+		"Ability5"				"ability_thdots_aya04" 
+		"Ability6"				"attribute_bonus"
+		
+		"Model"                 "models/thd2/aya/aya.vmdl"
+			
+		"ArmorPhysical"				"0"
+			//物理护甲
+		"AttackDamageMin"			"35"
+			//最大攻击力
+		"AttackDamageMax"			"38"
+			//最小攻击力
+			
+		"AttributeBaseStrength"		"18"
+			//基础力量
+		"AttributeStrengthGain"		"1.6"
+			//每级增加的力量，力量成长
+		"AttributeBaseAgility"		"28"
+			//基础敏捷
+		"AttributeAgilityGain"		"2.8"
+			//每级增加的敏捷，敏捷成长
+		"AttributeBaseIntelligence"	"14"
+			//基础智力
+		"AttributeIntelligenceGain"	"1.6"
+			//每级增加的智力，智力成长
+			
+		"MovementSpeed"				"320"
+			//基础移动速度
+		"MovementTurnRate"			"3.0"
+			//转身速度
+		"StatusHealth"				"220"
+			//基础生命值
+		"StatusHealthRegen"			"1.5"
+			//基础生命恢复
+		"StatusMana"				"60"
+			//基础魔法值
+		"StatusManaRegen"			"0.0"
+			//基础魔法恢复
+
+		"VisionDaytimeRange"		"1050"
+			//白天视野大小
+		"VisionNighttimeRange"		"700"
+			//晚上视野大小
+	}
+	"npc_dota_hero_Tensi"
+	{
+		"override_hero"				"npc_dota_hero_earthshaker"
+		"AbilityLayout" 			"5"
+		"Ability2"					"ability_thdots_tensi02" 
+		"Ability3"					"ability_thdots_tensi03" 
+		"Ability4"					"ability_collection_power"
+		"Ability5"             	 	"zuus_thundergods_wrath"
+		"Ability6"					"attribute_bonus"
+
+		"Model"                     "models/thd2/tenshi/tenshi.vmdl"
+			
+		"ArmorPhysical"				"0"
+			//物理护甲
+		"AttackDamageMin"			"34"
+			//最大攻击力
+		"AttackDamageMax"			"40"
+			//最小攻击力
+			
+		"AttributeBaseStrength"		"25"
+			//基础力量
+		"AttributeStrengthGain"		"2.5"
+			//每级增加的力量，力量成长
+		"AttributeBaseAgility"		"17"
+			//基础敏捷
+		"AttributeAgilityGain"		"2.3"
+			//每级增加的敏捷，敏捷成长
+		"AttributeBaseIntelligence"	"18"
+			//基础智力
+		"AttributeIntelligenceGain"	"1.8"
+			//每级增加的智力，智力成长
+			
+		"MovementSpeed"				"300"
+			//基础移动速度
+		"MovementTurnRate"			"2.0"
+			//转身速度
+		"StatusHealth"				"135"
+			//基础生命值
+		"StatusHealthRegen"			"1.5"
+			//基础生命恢复
+		"StatusMana"				"30"
+			//基础魔法值
+		"StatusManaRegen"			"0.0"
+			//基础魔法恢复
+
+		"VisionDaytimeRange"		"1050"
+			//白天视野大小
+		"VisionNighttimeRange"		"700"
+			//晚上视野大小
+	}
+	
+	"npc_dota_hero_Byakuren"
+	{
+		"override_hero"				"npc_dota_hero_dark_seer"
+		"AbilityLayout" 			"5"
+		"Ability1"					"ability_thdots_byakuren01" 
+		"Ability2"					"ability_thdots_byakuren02"
+		"Ability3"					"ability_thdots_byakuren03"
+		"Ability4"					"ability_collection_power"
+		"Ability5"					"ability_thdots_byakuren04"
+		"Ability6"					"attribute_bonus"
+		
+		"Model"                 	"models/thd2/byakuren/byakuren.vmdl"
+
+		"AbilityDraftDisabled"		"0"
+		
+		"AttackAnimationPoint"		"0.56"	
+			//攻击前摇
+		"AttackRate"				"1.6"			
+			//攻击速度
+		"ArmorPhysical"				"0"
+			//物理护甲
+		"AttackDamageMin"			"22"
+			//最大攻击力
+		"AttackDamageMax"			"37"
+			//最小攻击力
+			
+		"AttributeBaseStrength"		"18"
+			//基础力量
+		"AttributeStrengthGain"		"1.6"
+			//每级增加的力量，力量成长
+		"AttributeBaseAgility"		"18"
+			//基础敏捷
+		"AttributeAgilityGain"		"2.4"
+			//每级增加的敏捷，敏捷成长
+		"AttributeBaseIntelligence"	"28"
+			//基础智力
+		"AttributeIntelligenceGain"	"2.8"
+			//每级增加的智力，智力成长
+			
+		"MovementSpeed"				"310"
+			//基础移动速度
+		"MovementTurnRate"			"1.2"
+			//转身速度
+		"StatusHealth"				"135"
+			//基础生命值
+		"StatusHealthRegen"			"1.5"
+			//基础生命恢复
+		"StatusMana"				"0"
+			//基础魔法值
+		"StatusManaRegen"			"0.0"
+			//基础魔法恢复
+
+		"VisionDaytimeRange"		"1050"
+			//白天视野大小
+		"VisionNighttimeRange"		"700"
+			//晚上视野大小
+	
+	}
+	
+	"npc_dota_hero_yuyuko"
+	{
+		"override_hero"			"npc_dota_hero_necrolyte"
+		"AbilityLayout" 		"6"
+		"Ability1"				"death_prophet_carrion_swarm" 
+		"Ability2"				"bane_nightmare"
+		"Ability3"				"necrolyte_heartstopper_aura"
+		"Ability4"				"ability_collection_power"
+		"Ability5"				"ability_thdots_yuyukoEx"
+		"Ability6"				"ability_thdots_yuyuko04"
+		"Ability7"				"attribute_bonus"
+		
+		"Model"                 "models/thd2/yuyuko/yuyuko.vmdl"
+			
+		"AttackAnimationPoint"		"0.54"	
+			//攻击前摇
+		"AttackRate"				"1.75"			
+			//攻击速度
+		"ArmorPhysical"				"0"
+			//物理护甲
+		"AttackDamageMin"			"27"
+			//最大攻击力
+		"AttackDamageMax"			"35"
+			//最小攻击力
+			
+		"AttributeBaseStrength"		"20"
+			//基础力量
+		"AttributeStrengthGain"		"2.2"
+			//每级增加的力量，力量成长
+		"AttributeBaseAgility"		"18"
+			//基础敏捷
+		"AttributeAgilityGain"		"1.6"
+			//每级增加的敏捷，敏捷成长
+		"AttributeBaseIntelligence"	"22"
+			//基础智力
+		"AttributeIntelligenceGain"	"2.2"
+			//每级增加的智力，智力成长
+			
+		"MovementSpeed"				"303"
+			//基础移动速度
+		"MovementTurnRate"			"1.0"
+			//转身速度
+		"StatusHealth"				"97"
+			//基础生命值
+		"StatusHealthRegen"			"0.5"
+			//基础生命恢复
+		"StatusMana"				"60"
+			//基础魔法值
+		"StatusManaRegen"			"0.0"
+			//基础魔法恢复
+
+		"VisionDaytimeRange"		"1050"
+			//白天视野大小
+		"VisionNighttimeRange"		"700"
+			//晚上视野大小
+    }
+
+    "npc_dota_hero_sakuya"
+	{
+		"override_hero"			"npc_dota_hero_templar_assassin"
+		"AbilityLayout" 		"6"
+		"Ability1"				"ability_thdots_sakuya01" 
+		"Ability2"				"ability_thdots_sakuya02" 
+		"Ability3"				"ability_thdots_sakuya03"
+		"Ability4"				"ability_collection_power"
+		"Ability5"				"ability_thdots_sakuyaEx" 
+		"Ability6"				"ability_thdots_sakuya04" 
+		"Ability7"				"attribute_bonus"
+		
+		"Model"                 "models/thd2/sakuya/sakuya.vmdl"
+			
+		"AttackAnimationPoint"		"0.54"	
+			//攻击前摇
+		"AttackRate"				"1.75"			
+			//攻击速度
+		"AttackRange"				"540"
+			//攻击范围
+		"ArmorPhysical"				"0"
+			//物理护甲
+		"AttackDamageMin"			"22"
+			//最大攻击力
+		"AttackDamageMax"			"25"
+			//最小攻击力
+			
+		"AttributeBaseStrength"		"15"
+			//基础力量
+		"AttributeStrengthGain"		"1.5"
+			//每级增加的力量，力量成长
+		"AttributeBaseAgility"		"24"
+			//基础敏捷
+		"AttributeAgilityGain"		"2.5"
+			//每级增加的敏捷，敏捷成长
+		"AttributeBaseIntelligence"	"21"
+			//基础智力
+		"AttributeIntelligenceGain"	"2.0"
+			//每级增加的智力，智力成长
+			
+		"MovementSpeed"				"305"
+			//基础移动速度
+		"MovementTurnRate"			"2.0"
+			//转身速度
+		"StatusHealth"				"120"
+			//基础生命值
+		"StatusHealthRegen"			"0.5"
+			//基础生命恢复
+		"StatusMana"				"70"
+			//基础魔法值
+		"StatusManaRegen"			"0.0"
+			//基础魔法恢复
+
+		"VisionDaytimeRange"		"1050"
+			//白天视野大小
+		"VisionNighttimeRange"		"700"
+			//晚上视野大小
+    }
+
+    "npc_dota_hero_flandre"
+	{
+		"override_hero"			"npc_dota_hero_naga_siren"
+		"AbilityLayout" 		"6"
+		"Ability2"				"ability_thdots_flandre02"
+		"Ability3"				"skeleton_king_vampiric_aura"
+		"Ability4"				"ability_collection_power"
+		"Ability5"				""
+		"Ability6"				"ability_thdots_flandre04"
+		"Ability7"				"attribute_bonus"
+		
+		"Model"                 "models/thd2/flandre/flandre.vmdl"
+				
+		"ArmorPhysical"				"0"
+			//物理护甲
+		"AttackDamageMin"			"32"
+			//最大攻击力
+		"AttackDamageMax"			"34"
+			//最小攻击力
+		"AttackAnimationPoint"		"0.444"	
+			//攻击前摇
+		"AttackRate"				"1.6"			
+			//攻击速度
+		"AttributeBaseStrength"		"18"
+			//基础力量
+		"AttributeStrengthGain"		"1.5"
+			//每级增加的力量，力量成长
+		"AttributeBaseAgility"		"27"
+			//基础敏捷
+		"AttributeAgilityGain"		"3.25"
+			//每级增加的敏捷，敏捷成长
+		"AttributeBaseIntelligence"	"15"
+			//基础智力
+		"AttributeIntelligenceGain"	"1.25"
+			//每级增加的智力，智力成长
+			
+		"MovementSpeed"				"310"
+			//基础移动速度
+		"MovementTurnRate"			"3.0"
+			//转身速度
+		"StatusHealth"				"140"
+			//基础生命值
+		"StatusHealthRegen"			"3.5"
+			//基础生命恢复
+		"StatusMana"				"50"
+			//基础魔法值
+		"StatusManaRegen"			"0.0"
+			//基础魔法恢复
+
+		"VisionDaytimeRange"		"1050"
+			//白天视野大小
+		"VisionNighttimeRange"		"700"
+			//晚上视野大小
+	}
+
+	"npc_dota_hero_Mokou"
+	{
+		"override_hero"				"npc_dota_hero_chaos_knight"
+		"AbilityLayout" 			"5"
+		"Ability1"					"ability_thdots_mokou01" 
+		"Ability2"					"ability_thdots_mokou02" 
+		"Ability3"					"phoenix_supernova" 
+		"Ability4"					"ability_collection_power"
+		"Ability5"             	 	"ability_thdots_mokou04"
+		"Ability6"					"attribute_bonus"
+			
+		"Model"                 	"models/thd2/mokou/mokou.vmdl"
+
+		"ArmorPhysical"				"0"
+			//物理护甲
+		"AttackDamageMin"			"27"
+			//最大攻击力
+		"AttackDamageMax"			"45"
+			//最小攻击力
+		"AttackAnimationPoint"		"0.3"	
+			//攻击前摇
+		"AttackRate"				"1.35"			
+			//攻击速度
+		"AttributeBaseStrength"		"23"
+			//基础力量
+		"AttributeStrengthGain"		"2.3"
+			//每级增加的力量，力量成长
+		"AttributeBaseAgility"		"23"
+			//基础敏捷
+		"AttributeAgilityGain"		"2.4"
+			//每级增加的敏捷，敏捷成长
+		"AttributeBaseIntelligence"	"14"
+			//基础智力
+		"AttributeIntelligenceGain"	"1.3"
+			//每级增加的智力，智力成长
+			
+		"MovementSpeed"				"305"
+			//基础移动速度
+		"MovementTurnRate"			"1.2"
+			//转身速度
+		"StatusHealth"				"135"
+			//基础生命值
+		"StatusHealthRegen"			"1.5"
+			//基础生命恢复
+		"StatusMana"				"0"
+			//基础魔法值
+		"StatusManaRegen"			"0.0"
+			//基础魔法恢复
+
+		"VisionDaytimeRange"		"1050"
+			//白天视野大小
+		"VisionNighttimeRange"		"700"
+			//晚上视野大小
+	}
+
+}
