@@ -1468,6 +1468,8 @@
 				"IsHidden"          "0"
 				"Duration"          "%move_duration"
 				"ThinkInterval"     "0.2"
+				"OverrideAnimation" "Act_DOTA_CAST_ABILITY_1"
+
 				"OnIntervalThink"
 				{
 					"RunScript"
