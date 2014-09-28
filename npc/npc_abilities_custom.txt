@@ -498,6 +498,34 @@
             }
 		}
 	}	
+
+	"ability_system_collision"
+	{
+		"AbilityBehavior"   "DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_TURN | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"BaseClass"         "ability_datadriven"
+		"AbilityCooldown"   "0"
+		"MaxLevel"          "1"
+
+		"OnSpellStart"
+		{
+	       "ApplyModifier"
+            {
+			    "ModifierName"    "modifier_system_collision"
+                "Target"          "TARGET"
+            }
+	     
+		}
+		"Modifiers"
+		{
+            "modifier_system_collision"
+            {
+			    "States"
+			    {
+				    "MODIFIER_STATE_NO_UNIT_COLLISION"		    "MODIFIER_STATE_VALUE_ENABLED"
+			    }
+            }
+		}
+	}	
 	
 	"ability_system_magicImmune"
 	{
@@ -2884,6 +2912,12 @@
 
         "OnSpellStart"
         {
+        	"RunScript"
+			{
+				"ScriptFile" 		"scripts/vscripts/abilities/abilitySakuya.lua"
+				"Caster"			"CASTER"
+				"Function"			"OnSakuya01SpellReset"
+			}
 			
 			"LinearProjectile"
 			{
